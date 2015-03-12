@@ -1,8 +1,11 @@
 {
 	"name": "templeify",
 	"version": "1.0.0",
-	"description": "Browserify plugin for Temple templates.",
+	"description": "Browserify transform for Temple M+XML templates.",
 	"author": "Beneath the Ink <info@beneaththeink.com>",
+	"publishConfig": {
+		"registry": "http://registry.npmjs.org"
+	},
 	"contributors": [
 		{
 			"name": "Tyler Johnson",
@@ -17,7 +20,6 @@
 		"type": "git",
 		"url": "git://github.com/beneaththeink/templeify.git"
 	},
-	"homepage": "https://github.com/beneaththeink/templeify",
 	"main": "index.js",
 	"dependencies": {
 		"templejs": "~0.5.1",
