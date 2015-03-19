@@ -3,9 +3,6 @@
 	"version": "1.0.0",
 	"description": "Browserify transform for Temple M+XML templates.",
 	"author": "Beneath the Ink <info@beneaththeink.com>",
-	"publishConfig": {
-		"registry": "http://registry.npmjs.org"
-	},
 	"contributors": [
 		{
 			"name": "Tyler Johnson",
@@ -13,9 +10,6 @@
 			"url": "http://github.com/tyler-johnson"
 		}
 	],
-	"publishConfig": {
-		"registry": "http://registry.npmjs.org"
-	},
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/beneaththeink/templeify.git"
