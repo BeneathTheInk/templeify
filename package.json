@@ -16,8 +16,7 @@
 	},
 	"main": "index.js",
 	"dependencies": {
-		"templejs": "~0.5.1",
-		"through": "~2.3.6"
+		"through": "^2.3.8"
 	},
 	"license": "MIT",
 	"keywords": [

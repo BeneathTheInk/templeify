@@ -2,22 +2,41 @@ var Temple = require('templejs');
 var path = require('path');
 var through = require('through');
 
-var header = "// Compiled Temple Template\n";
-var exporter = "module.exports = ";
+var hasOwn = Object.prototype.hasOwnProperty;
+var slice = Array.prototype.slice;
+
+var header = "var Temple = require(\"templejs\");\n\n";
+
+function assign(obj) {
+	slice.call(arguments, 1).forEach(function(v) {
+		if (!v) return;
+		for (var k in v) {
+			if (hasOwn.call(v, k) && v[k] !== void 0) {
+				obj[k] = v[k];
+			}
+		}
+	});
+
+	return obj;
+}
 
 // transforms mustache templates
-module.exports = function templeify(file) {
+module.exports = function templeify(file, options) {
 	if (path.extname(file) !== ".html") return through();
 
 	var data = '';
 	return through(write, end);
 
-	function write (buf) { data += buf }
+	function write (buf) { data += buf; }
 	function end () {
 		var src;
-		
+
 		try {
-			src = render(data, path.basename(file));
+			src = header + Temple.compile(data, assign({
+				originalFilename: path.basename(file),
+				exports: "cjs",
+				sourceMap: true
+			}, options));
 		} catch (error) {
 			this.emit('error', error);
 		}
@@ -26,16 +45,3 @@ module.exports = function templeify(file) {
 		this.queue(null);
 	}
 };
-
-var render = module.exports.render = function(data, name) {
-	var result, src;
-
-	if (data.substr(0, header.length) !== header) {
-		result = Temple.parse(data);
-		src = header + "// " + name + "\n" + exporter + JSON.stringify(result) + ";";
-	} else {
-		src = data;
-	}
-
-	return src;
-}
