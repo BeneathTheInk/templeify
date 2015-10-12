@@ -15,6 +15,10 @@
 		"url": "git://github.com/beneaththeink/templeify.git"
 	},
 	"main": "index.js",
+	"scripts": {
+		"lint": "jshint *.js",
+		"prepublish": "npm run lint"
+	},
 	"dependencies": {
 		"templejs": "~0.6.2",
 		"through": "~2.3.8"
@@ -28,5 +32,8 @@
 		"js",
 		"plugin",
 		"transform"
-	]
+	],
+	"devDependencies": {
+		"jshint": "^2.8.0"
+	}
 }
