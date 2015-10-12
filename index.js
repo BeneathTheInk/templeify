@@ -24,6 +24,12 @@ function assign(obj) {
 module.exports = function templeify(file, options) {
 	if (path.extname(file) !== ".html") return through();
 
+	options = assign({
+		originalFilename: path.basename(file),
+		exports: "cjs",
+		sourceMap: true
+	}, options);
+
 	var data = '';
 	return through(write, end);
 
@@ -32,11 +38,10 @@ module.exports = function templeify(file, options) {
 		var src;
 
 		try {
-			src = header + Temple.compile(data, assign({
-				originalFilename: path.basename(file),
-				exports: "cjs",
-				sourceMap: true
-			}, options));
+			src = Temple.getSource([
+				header,
+				Temple.parse(data).compile(options)
+			], data, options);
 		} catch (error) {
 			this.emit('error', error);
 		}
