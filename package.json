@@ -1,6 +1,6 @@
 {
 	"name": "templeify",
-	"version": "2.0.1",
+	"version": "3.0.0-alpha.1",
 	"description": "Browserify transform for Temple M+XML templates.",
 	"author": "Beneath the Ink <info@beneaththeink.com>",
 	"contributors": [
@@ -12,7 +12,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/beneaththeink/templeify.git"
+		"url": "https://github.com/beneaththeink/templeify.git"
 	},
 	"main": "index.js",
 	"scripts": {
@@ -20,7 +20,7 @@
 		"prepublish": "npm run lint"
 	},
 	"dependencies": {
-		"templejs": "~0.6.2",
+		"templejs": "edge",
 		"through": "~2.3.8"
 	},
 	"license": "MIT",
@@ -28,7 +28,6 @@
 		"temple",
 		"mustache",
 		"browserify",
-		"v2",
 		"js",
 		"plugin",
 		"transform"
