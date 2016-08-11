@@ -1,38 +1,38 @@
 {
-	"name": "templeify",
-	"version": "3.0.0-alpha.1",
-	"description": "Browserify transform for Temple M+XML templates.",
-	"author": "Beneath the Ink <info@beneaththeink.com>",
-	"contributors": [
-		{
-			"name": "Tyler Johnson",
-			"email": "tyler@beneaththeink.com",
-			"url": "http://github.com/tyler-johnson"
-		}
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/beneaththeink/templeify.git"
-	},
-	"main": "index.js",
-	"scripts": {
-		"lint": "jshint *.js",
-		"prepublish": "npm run lint"
-	},
-	"dependencies": {
-		"templejs": "edge",
-		"through": "~2.3.8"
-	},
-	"license": "MIT",
-	"keywords": [
-		"temple",
-		"mustache",
-		"browserify",
-		"js",
-		"plugin",
-		"transform"
-	],
-	"devDependencies": {
-		"jshint": "^2.8.0"
-	}
+  "name": "templeify",
+  "version": "3.0.0-alpha.1",
+  "description": "Browserify transform for Temple M+XML templates.",
+  "author": "Beneath the Ink <info@beneaththeink.com>",
+  "contributors": [
+    {
+      "name": "Tyler Johnson",
+      "email": "tyler@beneaththeink.com",
+      "url": "http://github.com/tyler-johnson"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beneaththeink/templeify.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "jshint *.js",
+    "prepublish": "npm run lint"
+  },
+  "dependencies": {
+    "templejs-compiler": "^1.1.4",
+    "through": "~2.3.8"
+  },
+  "license": "MIT",
+  "keywords": [
+    "temple",
+    "mustache",
+    "browserify",
+    "js",
+    "plugin",
+    "transform"
+  ],
+  "devDependencies": {
+    "jshint": "^2.8.0"
+  }
 }

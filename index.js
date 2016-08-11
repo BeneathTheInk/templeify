@@ -1,11 +1,9 @@
-var Temple = require('templejs');
+var Temple = require('templejs-compiler');
 var path = require('path');
 var through = require('through');
 
 var hasOwn = Object.prototype.hasOwnProperty;
 var slice = Array.prototype.slice;
-
-var header = "var Temple = require(\"templejs\");\n\n";
 
 function assign(obj) {
 	slice.call(arguments, 1).forEach(function(v) {
@@ -25,9 +23,8 @@ module.exports = function templeify(file, options) {
 	if (path.extname(file) !== ".html") return through();
 
 	options = assign({
-		originalFilename: path.basename(file),
-		exports: "cjs",
-		sourceMap: true
+		filename: path.basename(file),
+		format: "cjs"
 	}, options);
 
 	var data = '';
@@ -38,10 +35,7 @@ module.exports = function templeify(file, options) {
 		var src;
 
 		try {
-			src = Temple.getSource([
-				header,
-				Temple.parse(data).compile(options)
-			], data, options);
+			src = Temple.compile(data, options).toString(true);
 		} catch (error) {
 			this.emit('error', error);
 		}
